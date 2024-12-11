@@ -100,14 +100,6 @@ return decode.user && decode.server && decode.user + '@' + decode.server || jid
 } else return jid
 }
 
-client.on('message_create', async (msg) => {
-  const chat = await msg.getChat();
-  const contact = await msg.getContact();
-  const timezone = 'Asia/Jakarta';
-  const jam = moment().tz(timezone).format('dddd DD-MM-YYYY HH:mm:ss');
-  console.log(`💬 ${contact.pushname} : ${msg.body}\n`);
-  
-
 Rifky.getName = (jid, withoutContact= false) => {
 id = Rifky.decodeJid(jid)
 withoutContact = Rifky.withoutContact || withoutContact 
